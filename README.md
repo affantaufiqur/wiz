@@ -1,6 +1,6 @@
 ## Introduction
 
-Wiz is a simple CLI based password managers inspired by [Pass](https://www.passwordstore.org). The features are still very minimal, but I planned to add more as I am still learning the language. This is my personal project to learn Deno / Node. You can use it and modify the code if you want to
+Wiz is a simple CLI based password managers inspired by [Pass](https://www.passwordstore.org). The features are still very minimal, but I planned to add more as I am still learning the language. This is just my personal side project to learn Deno / Node. You can use it and modify the code if you want to
 
 **Warning:** The encryption is not that secure.
 
