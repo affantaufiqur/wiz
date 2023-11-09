@@ -1,12 +1,11 @@
 import { colors } from "https://deno.land/x/cliffy@v1.0.0-rc.3/ansi/colors.ts";
-import { encrypt } from "./encrypt.ts";
 
 export const windowsPath = Deno.env.get("LOCALAPPDATA");
 export const FILE_PATH = `${windowsPath}\\wiz`;
 
 export async function createConfig(pin: string) {
 	const toWrite = {
-		pin: await encrypt(pin),
+		pin,
 	};
 	try {
 		await Deno.writeTextFile(`${FILE_PATH}\\config.json`, JSON.stringify(toWrite));

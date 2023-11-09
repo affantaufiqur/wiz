@@ -12,11 +12,11 @@ async function main() {
 	if (args[0] === "-c" && checkIfConfigExist === false) {
 		return await getFlags();
 	} else if (args[0] === "-c" && checkIfConfigExist) {
-		console.log("config already exist, please use wiz -c");
+		console.log("config already exist");
 		return cmd;
 	}
 	if (checkIfConfigExist === false) {
-		console.log("config not exist, create with wiz -s");
+		console.log("config not exist, create with wiz -c");
 		return cmd;
 	}
 	return await getFlags();

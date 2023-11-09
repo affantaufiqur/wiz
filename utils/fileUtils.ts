@@ -53,5 +53,3 @@ export async function checkIfFilenameAlreadyExists(filename: string, folderName:
 		return false;
 	}
 }
-
-console.log(await checkIfFilenameAlreadyExists("main", "github"));

@@ -2,7 +2,7 @@
 
 Wiz is a simple CLI based password managers inspired by [Pass](https://www.passwordstore.org). The features are still very minimal, but I planned to add more as I am still learning the language. This is just my personal side project to learn Deno / Node. You can use it and modify the code if you want to
 
-**Warning:** The encryption is not that secure.
+**Warning:** The password will be saved in plain text.
 
 All of the credentials will be saved to
 `C:\Users\<username>\AppData\Local\Wiz\<folder_name>\<file_name>.json`
@@ -11,11 +11,9 @@ All of the credentials will be saved to
 
 1. Make sure you have [Deno](https://docs.deno.com/runtime/manual/getting_started/installation) installed on your machine
 2. Clone this repository
-3. Create .env file on the root folder
-4. Fill the `.env` file with your secret password of choice (make sure it's 16 chars long) like on the `env.example` file
-5. run `Deno compile main.ts`, and allow write and read permissions
-6. Add compiled file to your Windows PATH executable, you can follow the instruction [here](https://gist.github.com/ScribbleGhost/752ec213b57eef5f232053e04f9d0d54)
-7. run `wiz -h` on terminal
+3. run `Deno compile main.ts`, and allow write and read permissions
+4. Add compiled file to your Windows PATH executable, you can follow the instruction [here](https://gist.github.com/ScribbleGhost/752ec213b57eef5f232053e04f9d0d54)
+5. run `wiz -h` on terminal
 
 ## Commads
 

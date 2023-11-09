@@ -4,7 +4,6 @@ import { Input, Secret } from "https://deno.land/x/cliffy@v1.0.0-rc.3/prompt/mod
 import { uuidv7 } from "npm:uuidv7@0.6.3";
 import { checkIfFilenameAlreadyExists, sanitizeFileName } from "../utils/fileUtils.ts";
 import { createConfig } from "./config.ts";
-import { encrypt } from "./encrypt.ts";
 import { getPrompt } from "./prompt.ts";
 import { selectAndReadFile } from "./retrieve.ts";
 import { makeDir, writeIntoJson } from "./write.ts";
@@ -33,14 +32,13 @@ export async function getFlags() {
 
 		if (flags.new) {
 			const promptResult = await getPrompt();
-			const encryptPassword = await encrypt(promptResult.password);
 
 			// if user select no folder
 			if (!promptResult.folder) {
 				const entry = {
 					id: uuidv7(),
 					username: promptResult.emailOrUsername,
-					password: encryptPassword,
+					password: promptResult.password,
 					folder: "random",
 					name: sanitizeFileName(promptResult.name).toLocaleLowerCase(),
 				};
@@ -70,7 +68,7 @@ export async function getFlags() {
 				const entry = {
 					id: uuidv7(),
 					username: promptResult.emailOrUsername,
-					password: encryptPassword,
+					password: promptResult.password,
 					folder: folderName.toLocaleLowerCase(),
 					name: sanitizeFileName(promptResult.name).toLocaleLowerCase(),
 				};
@@ -80,7 +78,6 @@ export async function getFlags() {
 					entry.name,
 					entry.folder.toLocaleLowerCase()
 				);
-				console.log(checkFileAndFolder, entry.name, entry.folder.toLocaleLowerCase());
 				if (!checkFileAndFolder) {
 					try {
 						await writeIntoJson(
